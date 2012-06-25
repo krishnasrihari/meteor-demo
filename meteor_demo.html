@@ -1,0 +1,30 @@
+<head>
+  <title>meteor_demo</title>
+</head>
+
+<body>
+  <div id="container">{{> demo}}</div>
+</body>
+
+<template name="demo">
+  <h1>Welcome To Meteor Demo</h1>
+  <form id="entry_form">
+  	<input type="text" name="Enter name" value="" id="new_entry_name"/>
+  	<input type="submit" value="Add"/>  	
+  </form>
+  <ul id="entries">
+	{{#each entries}}
+		{{> entry}}
+	{{/each}}
+  </ul>
+  <button id="catch">Catch me</button>
+</template>
+
+<template name="entry">
+	<li>
+		{{name}}
+		{{#if winner}}
+			<span class="winner {{winner_class}}">CAUGHT ME</span>
+		{{/if}}
+	</li>
+</template>
